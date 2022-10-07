@@ -1,9 +1,23 @@
-import './App.css'
+import { useEffect, useState } from "react";
+import Wordle from "./components/Wordle";
 
 function App() {
+  const [solution, setSolution] = useState(null)
+
+  useEffect(()=>{
+    fetch('http://localhost:3001/solutions')
+      .then(res => res.json())
+      .then(json => {
+        // console.log(json)
+        const randomSolution = json[Math.floor(Math.random() * json.length)]
+        setSolution(randomSolution.word)
+      })
+  }, [setSolution])
+
   return (
     <div className="App">
       <h1>Wordle (Lingo)</h1>
+      { solution && <Wordle solution={solution}/>}
     </div>
   );
 }
@@ -18,11 +32,11 @@ data we need to track:
   -- past guesses
     -- an array of past guesses
     -- each past guess is an array of letter objects [{}, {}, {}, {}, {}]
-    -- each object represents a letter in the guess word {letter: 'a', color: 'yellow'}
+    -- each object represents a letter in the guess word { key: 'a', color: 'yellow' }
   -- current guess
     -- string 'hello'
   -- keypad letters
-    -- array of letter objects [{key: 'a', color: 'green'}, {}, {} ...]
+    -- array of letter objects [{ key: 'a', color: 'green' }, {}, {} ...]
   -- number of turns
     -- an integer 0 - 6
 
