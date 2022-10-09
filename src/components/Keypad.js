@@ -36,39 +36,6 @@ function Keypad({ usedKeys }) {
             <KeypadRow row={letterRow1} usedKeys={usedKeys} />
             <KeypadRow row={letterRow2} usedKeys={usedKeys} />
             <KeypadRow row={letterRow3} usedKeys={usedKeys} />
-            {/* <div className="keypad-row">
-                {letterRow1 &&
-                    letterRow1.map((letter) => {
-                        const color = usedKeys[letter.key];
-                        return (
-                            <div key={letter.key} className={color}>
-                                {letter.key}
-                            </div>
-                        );
-                    })}
-            </div>
-            <div className="keypad-row">
-                {letterRow2 &&
-                    letterRow2.map((letter) => {
-                        const color = usedKeys[letter.key];
-                        return (
-                            <div key={letter.key} className={color}>
-                                {letter.key}
-                            </div>
-                        );
-                    })}
-            </div>
-            <div className="keypad-row">
-                {letterRow3 &&
-                    letterRow3.map((letter) => {
-                        const color = usedKeys[letter.key];
-                        return (
-                            <div key={letter.key} className={color}>
-                                {letter.key}
-                            </div>
-                        );
-                    })}
-            </div> */}
         </div>
     );
 }
