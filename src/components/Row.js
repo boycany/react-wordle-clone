@@ -1,5 +1,5 @@
 export default function Row({ guess, currentGuess }) {
-    console.log("guess :>> ", guess);
+    // console.log("guess :>> ", guess);
     if (guess) {
         return (
             <div className="row past">
