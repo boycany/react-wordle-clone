@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import KeypadRow from "./KeypadRow";
 
 function Keypad({ usedKeys }) {
     const [letterRow1, setLetterRow1] = useState([]);
@@ -32,7 +33,10 @@ function Keypad({ usedKeys }) {
 
     return (
         <div className="keypad">
-            <div className="keypad-row">
+            <KeypadRow row={letterRow1} usedKeys={usedKeys} />
+            <KeypadRow row={letterRow2} usedKeys={usedKeys} />
+            <KeypadRow row={letterRow3} usedKeys={usedKeys} />
+            {/* <div className="keypad-row">
                 {letterRow1 &&
                     letterRow1.map((letter) => {
                         const color = usedKeys[letter.key];
@@ -64,7 +68,7 @@ function Keypad({ usedKeys }) {
                             </div>
                         );
                     })}
-            </div>
+            </div> */}
         </div>
     );
 }
